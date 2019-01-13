@@ -5,9 +5,10 @@ import Nav from "../components/nav";
 import Markdown from "markdown-to-jsx";
 var fm = require("front-matter");
 
+import icon from '../static/images/icon.svg';
+
 const importAllContent = r => r.keys().map(r);
 const markdownContent = importAllContent(require.context('../posts/', false, /\.md$/)).sort();
-console.log(markdownContent);
 
 class Home extends React.Component {
   state = {
@@ -17,15 +18,14 @@ class Home extends React.Component {
   render() {
     return (
       <div>
-        <Head title="Home" />
-        <Nav />
+        <div className="center">
+          <img className="logo" src={icon} />
+          <span className="title">Rice Blockchain</span>
+          <span className="description">Our mission is to demystify the world of blockchains & cryptocurrencies.</span>
+        </div>
         <div className="hero" style={{ margin: "1em" }}>
-          <h1 className="title">Welcome to Next!</h1>
-          <p className="description">
-            To get started, edit <code>pages/index.js</code> and save to reload.
-          </p>
-          <div class="hero">
-          { this.state.posts.map((post, idx) => (
+          <div className="hero">
+          {/* { this.state.posts.map((post, idx) => (
                 <div className="row" key={idx}>
                   <div style={{"border": "5px solid black", "padding": "2em"}}>
                     <div>
@@ -36,27 +36,69 @@ class Home extends React.Component {
                   </div>
                 </div>
               ))
-          }
+          } */}
           </div>
         
         </div>
 
         <style jsx>{`
-          .hero {
+
+          @import url("https://use.typekit.net/ben1ckd.css");
+
+          html, body {
             width: 100%;
-            color: #333;
+            height: 100%;
+            overflow: hidden !important;
           }
-          .title {
-            margin: 0;
-            width: 100%;
-            padding-top: 80px;
-            line-height: 1.15;
-            font-size: 48px;
-          }
-          .title,
-          .description {
+
+          .center {
+            width: 50%;
+            margin-left: 25%;
+            margin-right: 25%;
+            margin-top: 8%;
             text-align: center;
           }
+
+          @media screen and (max-width: 800px) {
+            .logo {
+              width: 50% !important;
+              margin: 1em;
+            }
+
+            .center {
+              width: 75%;
+              margin: 10% 12.5%;
+            }
+
+          }
+
+          .logo { 
+            width: 30%;
+          }
+
+          .title {
+            text-transform: uppercase;
+            width: 100%;
+            padding-top: 7%;
+            line-height: 1.15;
+            font-size: 2rem;
+            font-family: 'Rhode';
+            font-weight: 600;
+          }
+
+          .description {
+            font-family: axia, sans-serif;
+            font-size: 1.6rem;
+            font-weight: 300;
+            width: 75%;
+            margin: 0.5em 12.5%;
+          }
+
+          .title,
+          .description {
+            display: block;
+          }
+
           .row {
             max-width: 880px;
             margin: 80px auto 40px;
@@ -64,6 +106,7 @@ class Home extends React.Component {
             flex-direction: row;
             justify-content: space-around;
           }
+
           .card {
             padding: 18px 18px 24px;
             width: 220px;
@@ -72,14 +115,17 @@ class Home extends React.Component {
             color: #434343;
             border: 1px solid #9b9b9b;
           }
+
           .card:hover {
             border-color: #067df7;
           }
+
           .card h3 {
             margin: 0;
             color: #067df7;
             font-size: 18px;
           }
+
           .card p {
             margin: 0;
             padding: 12px 0 0;
