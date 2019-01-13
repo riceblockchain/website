@@ -3,7 +3,9 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "export": "next build && next export -o docs",
+    "deploy": "next build && next export -o docs && cd docs && touch CNAME && echo \"blockchain.rice.edu\" >> CNAME && touch .nojekyll && cd .. && git add docs && git commit -m \"deploy new build\""
   },
   "dependencies": {
     "es6-promise": "^4.2.5",
