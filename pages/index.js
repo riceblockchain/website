@@ -2,19 +2,10 @@ import React from "react";
 import Link from "next/link";
 import Head from "../components/head";
 import Nav from "../components/nav";
-import Markdown from "markdown-to-jsx";
-var fm = require("front-matter");
 
 import icon from '../static/images/icon.svg';
 
-const importAllContent = r => r.keys().map(r);
-const markdownContent = importAllContent(require.context('../posts/', false, /\.md$/)).sort();
-
 class Home extends React.Component {
-  state = {
-    posts: markdownContent.map(file => fm(file)),
-  };
-
   render() {
     return (
       <div>
@@ -22,23 +13,6 @@ class Home extends React.Component {
           <img className="logo" src={icon} />
           <span className="title">Rice Blockchain</span>
           <span className="description">Our mission is to demystify the world of blockchains & cryptocurrencies.</span>
-        </div>
-        <div className="hero" style={{ margin: "1em" }}>
-          <div className="hero">
-          {/* { this.state.posts.map((post, idx) => (
-                <div className="row" key={idx}>
-                  <div style={{"border": "5px solid black", "padding": "2em"}}>
-                    <div>
-                      <h1>{post.attributes.title}</h1>
-                      <strong>{post.attributes.description}</strong>
-                      <Markdown>{post.body}</Markdown>
-                    </div>
-                  </div>
-                </div>
-              ))
-          } */}
-          </div>
-        
         </div>
 
         <style jsx>{`
