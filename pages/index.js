@@ -9,6 +9,7 @@ class Home extends React.Component {
   render() {
     return (
       <div>
+        <Head/>
         <div className="center">
           <img className="logo" src={icon} />
           <span className="title">Rice Blockchain</span>
