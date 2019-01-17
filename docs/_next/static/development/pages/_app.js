@@ -9117,7 +9117,7 @@ module.exports = function(module) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __NEXT_REGISTER_PAGE('/_app', function() {
-module.exports = __webpack_require__(/*! /Users/achal/Dropbox/2019/blockchain/website/node_modules/next/dist/pages/_app.js */"./node_modules/next/dist/pages/_app.js");
+module.exports = __webpack_require__(/*! /mnt/c/Users/yorke/dev/riceblockchain/website/node_modules/next/dist/pages/_app.js */"./node_modules/next/dist/pages/_app.js");
 
 return { page: module.exports.default }});
 

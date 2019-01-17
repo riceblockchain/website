@@ -1,4 +1,4 @@
-const favIconPath = "/static/favicon.ico/"
+const favIconPath = "/static/favicons/"
 
 export default () => (
     <>    
