@@ -1,66 +1,123 @@
 import React from "react";
 import Link from "next/link";
-import Head from "../components/head";
-import Nav from "../components/nav";
-
+import Signup from "../components/signup";
+import Blurbs from "../components/blurbs";
+import Footer from "../components/footer";
 import icon from '../static/images/icon.svg';
+import line from '../static/icons/hr.svg';
 
 class Home extends React.Component {
   render() {
     return (
-      <div>
+      <div className="container">
+        <div className="signup">
+          <Signup />
+        </div>
         <div className="center">
           <img className="logo" src={icon} />
           <span className="title">Rice Blockchain</span>
-          <span className="description">Our mission is to demystify the world of blockchains & cryptocurrencies.</span>
+          <span className="subtitle">Our mission is to demystify the world of blockchains & cryptocurrencies.</span>
+          <img className="line" src={line} />
+        </div>
+        <div className="row-wide">
+          <Blurbs />
+          <Footer />
         </div>
 
-        <style jsx>{`
+        <style jsx global>{`
 
           @import url("https://use.typekit.net/ben1ckd.css");
 
           html, body {
             width: 100%;
             height: 100%;
-            overflow: hidden !important;
+            font-family: 'Axia', sans-serif;
+          }
+
+          .container {
+            margin: 1%;
+            display: flex;
+            flex-flow: column nowrap;
+          }
+
+          a {
+            text-decoration: none;
+            color: rgba(3, 190, 194, 0.9);
+            transition: border 0.15s ease-in-out;
+            background: rgba(3, 190, 194, 0.1)
+          }
+
+          a:hover {
+            border-bottom: 1px solid rgba(3, 190, 194, 0.9);
+            text-decoration: none;
+          }
+
+          .signup {
+            font-family: 'Axia', sans-serif !important;
+            position: fixed;
+            right: 8%;
+            top: 8%;
+          }
+
+          .line {
+            margin-top: 5%;
           }
 
           .center {
             width: 50%;
             margin-left: 25%;
             margin-right: 25%;
-            margin-top: 8%;
+            margin-top: 7%;
             text-align: center;
           }
 
-          @media screen and (max-width: 800px) {
-            .logo {
-              width: 50% !important;
-              margin: 1em;
+          @media screen and (max-width: 1000px) {
+            .signup {
+              position: relative;
+              left: 0%;
+              right: 0%;
+              margin-top: 5%;
             }
+          }
 
+          @media screen and (max-width: 800px) {
             .center {
               width: 75%;
               margin: 10% 12.5%;
             }
 
+            .title {
+              font-size: 1.6em !important;
+            }
+
+            .subtitle {
+              font-size: 1.3em !important;
+              width: 90% !important;
+              margin: 5% 5% !important;
+            }
+
+            .logo {
+              width: 30% !important;
+              margin: 1em;
+            }
+
           }
 
           .logo { 
-            width: 30%;
+            width: 22%;
           }
 
           .title {
             text-transform: uppercase;
             width: 100%;
-            padding-top: 7%;
+            padding-top: 4%;
             line-height: 1.15;
             font-size: 2rem;
             font-family: 'Rhode';
             font-weight: 600;
           }
 
-          .description {
+          .subtitle {
             font-family: axia, sans-serif;
             font-size: 1.6rem;
             font-weight: 300;
@@ -69,16 +126,8 @@ class Home extends React.Component {
           }
 
           .title,
-          .description {
+          .subtitle {
             display: block;
-          }
-
-          .row {
-            max-width: 880px;
-            margin: 80px auto 40px;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-around;
           }
 
           .card {
@@ -105,6 +154,13 @@ class Home extends React.Component {
             padding: 12px 0 0;
             font-size: 13px;
             color: #333;
+          }
+
+          .row-wide {
+            margin-left: 7.5%;
+            margin-right: 7.5%;
+            margin-top: 3%;
+            max-width: 85%;
           }
         `}</style>
       </div>
